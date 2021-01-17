@@ -10,11 +10,14 @@ def calculate_winnings(amount, bet_outcome):
         bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
     """
     if is_win(bet_outcome):
-        return bet_outcome * 2
+        # bet doubled
+        return amount
     elif is_tie(bet_outcome):
-        return bet_outcome
-    else:
+        # bet gained back - no net winnings
         return 0
+    else:
+        # bet lost
+        return -amount
 
 
 def handle_zero_bet():
