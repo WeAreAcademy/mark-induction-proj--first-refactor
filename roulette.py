@@ -68,7 +68,7 @@ def is_odd_win(guess, roulette_result):
         roulette_result (str): The roulette result
     """
     roulette_num = int(roulette_result) # type conversion from string
-    return utils.is_even(guess) and roulette_num % 2 is 1
+    return utils.is_odd(guess) and roulette_num % 2 is 1
 
 def is_straight_win(guess, roulette_result):
     """Check whether the game has a 'straight up' win, where the player guesses the precise roulette wheel outcome (e.g. `"17"`)
