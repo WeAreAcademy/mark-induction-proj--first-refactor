@@ -17,75 +17,67 @@ def play(guess, bet):
     #A standard roulette wheel has the numbers 0 through 36 as well as 00. We'll use 37 to represent 00.
     utils.print_with_divider("Let's play roulette!", before=True, after=False)
     result = spin_wheel()
-    if result == 37:
-        print("The wheel landed on 00")
-    else:
-        print("The wheel landed on " + str(result))
-
-    #Checks to see if we guessed Even and the result was even. If the result was 0, the player shouldn't win
-    if guess == "Even" and result % 2 == 0 and result != 0:
-        print(str(result) + " is an even number.")
-        print("You won " + str(bet)+" dollars!")
-        print_divider()
-        return bet
-
-    #Checks to see if we guessed Odd and the result was odd. If the result was 37, the player shouldn't win, since that's what we are using to represent 00.
-    elif guess == "Odd" and result % 2 == 1 and result != 37:
-        print(str(result) + " is an odd number.")
-        print("You won " + str(bet)+" dollars!")
-        print_divider()
-        return bet
-
-    # If you guessed a number and the result was that number, you should win 35 times the amount they bet
-    elif guess == result:
-        print("You guessed " + str(guess) + " and the result was " + str(result))
-        print("You won " + str(bet * 35)+" dollars!")
-        print_divider()
-        return bet * 35
-
-    # If none of the above are true, you lost.
-    else:
-        print("You lost " + str(bet)+" dollars!")
-        print_divider()
-        return -bet
+    outcome = find_outcome(guess, result)
+    return utils.find_and_print_winnings(guess, outcome)
 
 # -----------------------
 # Helper functions below
 # -----------------------
 
-even_variants = ["even", "Even"]
-odd_variants = ["odd", "Odd"]
+# 0 and 00 don't count as odd or even
+non_standard_numbers = ["0", "00"]
 
-def find_outcome(player_guess, dice_total):
+def find_outcome(player_guess, roulette_result):
     """Return the game outcome based on the player guess and dice total.
 
     Args:
         player_guess (str): The predicted coin flip
-        bet (int): The amount waged
+        roulette_result (str): The roulette result
     """
-    is_win = is_even_win(player_guess, dice_total) or is_odd_win(player_guess, dice_total)
-    return utils.GAME_WIN if is_win else utils.GAME_LOSS
+    if is_even_win(player_guess, roulette_result):
+        return utils.GAME_WIN
+    elif is_odd_win(player_guess, roulette_result):
+        return utils.GAME_WIN
+    elif is_straight_win(player_guess, roulette_result):
+        return utils.GAME_WIN_ROULETTE_EXACT
+    else:
+        return utils.GAME_LOSS
 
-def is_even_win(guess, dice_total):
+def is_even_win(guess, roulette_result):
     """Check whether the game has an even win.
 
     Args:
         guess (str): The player guess
-        dice_total (int): The dice total
+        roulette_result (str): The roulette result
     """
-    return guess in even_variants and dice_total % 2 is 0
+    if roulette_result in non_standard_numbers:
+        # Ensure "0" and "00" don't get counted as even
+        return False
+    else:
+        roulette_num = int(roulette_result) # type conversion from string
+        return utils.is_even(guess) and roulette_num % 2 is 0
 
-def is_odd_win(guess, dice_total):
+def is_odd_win(guess, roulette_result):
     """Check whether the game has an odd win.
 
     Args:
         guess (str): The player guess
-        dice_total (int): The dice total
+        roulette_result (str): The roulette result
     """
-    return guess in odd_variants and dice_total % 2 is 1
+    roulette_num = int(roulette_result) # type conversion from string
+    return utils.is_even(guess) and roulette_num % 2 is 1
 
-def print_dice_total(dice_total):
-    print(f"The sum of the two dice is {dice_total}")
+def is_straight_win(guess, roulette_result):
+    """Check whether the game has a 'straight up' win, where the player guesses the precise roulette wheel outcome (e.g. `"17"`)
+
+    Args:
+        guess (str): The player guess
+        roulette_result (str): The roulette result
+    """
+    return str(guess) is roulette_result # roulette_result is a string
+
+def print_roulette_result(roulette_result):
+    print(f"The sum of the two dice is {roulette_result}")
 
 def print_selected_cards(player_card, computer_card):
     print(f"Your card was {player_card}")
@@ -96,8 +88,8 @@ def spin_wheel():
     """
     integer = random.randint(0, 37)
     if integer is 37:
-      return "00" # Using 37 to model 00
+        return "00" # Using 37 to model 00
     else:
-      # return a string for type consistency
-      return f"{integer}"
+        # return a string for type consistency
+        return str(integer)
 

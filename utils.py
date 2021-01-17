@@ -1,6 +1,7 @@
 GAME_TIE = 'tie'
 GAME_LOSS = 'lose'
 GAME_WIN = 'win'
+GAME_WIN_ROULETTE_EXACT = 'roulette-straight-up'
 
 even_variants = ["even", "Even"]
 odd_variants = ["odd", "Odd"]
@@ -9,8 +10,8 @@ def calculate_winnings(amount, bet_outcome):
     """Returns the net bet winnings.
 
     Args:
-        is_win (boolean): Whether or not the bet was won
-        bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
+        amount (int): The amount wagered
+        bet_outcome (str): The outcome of the game
     """
     if is_win(bet_outcome):
         # bet doubled
@@ -18,10 +19,22 @@ def calculate_winnings(amount, bet_outcome):
     elif is_tie(bet_outcome):
         # bet gained back - no net winnings
         return 0
+    elif is_roulette_straight_win(bet_outcome):
+        # special case in roulette that returns 35x payout
+        return 35 * amount
     else:
         # bet lost
         return -amount
 
+def find_and_print_winnings(amount, bet_outcome):
+    """Returns the net bet winnings and prints the outcome to the terminal.
+
+    Args:
+        amount (int): The amount wagered
+        bet_outcome (str): The outcome of the game
+    """
+    print_bet_outcome(amount, bet_outcome)
+    return calculate_winnings(amount, bet_outcome)
 
 def handle_zero_bet():
     print_with_divider("Your bet should be above 0.", before=True, after=True)
@@ -36,28 +49,21 @@ def is_loss(bet_outcome):
 def is_odd(string):
     return string in odd_variants
 
+def is_roulette_straight_win(bet_outcome):
+    return bet_outcome is GAME_WIN_ROULETTE_EXACT
+
 def is_tie(bet_outcome):
     return bet_outcome is GAME_TIE
 
 def is_win(bet_outcome):
     return bet_outcome is GAME_WIN
 
-def find_and_print_winnings(amount, bet_outcome):
-    """Returns the net bet winnings and prints the outcome to the terminal.
-
-    Args:
-        is_win (boolean): Whether or not the bet was won
-        bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
-    """
-    print_bet_outcome(amount, bet_outcome)
-    return calculate_winnings(amount, bet_outcome)
-
 def print_bet_outcome(amount, bet_outcome):
     """Announce the bet outcome.
 
     Args:
-        amount (int): The amount wagered.
-        bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
+        amount (int): The amount wagered
+        bet_outcome (str): The outcome of the game
     """
     if is_win(bet_outcome):
         print_with_divider(f"You won {amount} dollars!")
