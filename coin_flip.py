@@ -7,9 +7,9 @@ def play(guess, bet):
 
     Args:
         guess (str): The predicted coin flip
-        bet (number): The amount waged
+        bet (int): The amount waged
 
-    Returns: (number) the net winnings
+    Returns: (int) the net winnings
     """
     # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()

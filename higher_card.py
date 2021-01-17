@@ -6,9 +6,9 @@ def play(bet):
     """Play a higher card game with the associated wager.
 
     Args:
-        bet (number): The amount waged
+        bet (int): The amount waged
 
-    Returns: (number) the net winnings
+    Returns: (int) the net winnings
     """
     if bet <= 0: return utils.handle_zero_bet()
     

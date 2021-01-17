@@ -6,9 +6,9 @@ def play(guess, bet):
     """Play a higher card game with the associated wager.
 
     Args:
-        bet (number): The amount waged
+        bet (int): The amount waged
 
-    Returns: (number) the net winnings
+    Returns: (int) the net winnings
     """
     # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()
@@ -23,15 +23,13 @@ def play(guess, bet):
 # Helper functions below
 # -----------------------
 
-even_variants = ["even", "Even"]
-odd_variants = ["odd", "Odd"]
 
 def find_outcome(player_guess, dice_total):
     """Return the game outcome based on the player guess and dice total.
 
     Args:
         player_guess (str): The predicted coin flip
-        bet (number): The amount waged
+        bet (int): The amount waged
     """
     is_win = is_even_win(player_guess, dice_total) or is_odd_win(player_guess, dice_total)
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
@@ -41,18 +39,18 @@ def is_even_win(guess, dice_total):
 
     Args:
         guess (str): The player guess
-        dice_total (number): The dice total
+        dice_total (int): The dice total
     """
-    return guess in even_variants and dice_total % 2 is 0
+    return utils.is_even(guess) and dice_total % 2 is 0
 
 def is_odd_win(guess, dice_total):
     """Check whether the game has an odd win.
 
     Args:
         guess (str): The player guess
-        dice_total (number): The dice total
+        dice_total (int): The dice total
     """
-    return guess in odd_variants and dice_total % 2 is 1
+    return utils.is_odd(guess) and dice_total % 2 is 1
 
 def print_dice_total(dice_total):
     print(f"The sum of the two dice is {dice_total}")

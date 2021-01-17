@@ -2,6 +2,9 @@ GAME_TIE = 'tie'
 GAME_LOSS = 'lose'
 GAME_WIN = 'win'
 
+even_variants = ["even", "Even"]
+odd_variants = ["odd", "Odd"]
+
 def calculate_winnings(amount, bet_outcome):
     """Returns the net bet winnings.
 
@@ -24,8 +27,14 @@ def handle_zero_bet():
     print_with_divider("Your bet should be above 0.", before=True, after=True)
     return 0
 
+def is_even(string):
+    return string in even_variants
+
 def is_loss(bet_outcome):
     return bet_outcome is GAME_LOSS
+
+def is_odd(string):
+    return string in odd_variants
 
 def is_tie(bet_outcome):
     return bet_outcome is GAME_TIE
@@ -47,7 +56,7 @@ def print_bet_outcome(amount, bet_outcome):
     """Announce the bet outcome.
 
     Args:
-        amount (number): The amount wagered.
+        amount (int): The amount wagered.
         bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
     """
     if is_win(bet_outcome):
