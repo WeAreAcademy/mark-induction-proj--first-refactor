@@ -14,11 +14,14 @@ def play(guess, bet):
     # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()
 
+    parsed_guess = str(guess) # convert guess to string for predictability
+
     #A standard roulette wheel has the numbers 0 through 36 as well as 00. We'll use 37 to represent 00.
     utils.print_with_divider("Let's play roulette!", before=True, after=False)
     result = spin_wheel()
-    outcome = find_outcome(guess, result)
-    return utils.find_and_print_winnings(guess, outcome)
+    print_roulette_result(result)
+    outcome = find_outcome(parsed_guess, result)
+    return utils.find_and_print_winnings(bet, outcome)
 
 # -----------------------
 # Helper functions below
@@ -77,7 +80,7 @@ def is_straight_win(guess, roulette_result):
     return str(guess) is roulette_result # roulette_result is a string
 
 def print_roulette_result(roulette_result):
-    print(f"The sum of the two dice is {roulette_result}")
+    print(f"The wheel landed on {roulette_result}")
 
 def print_selected_cards(player_card, computer_card):
     print(f"Your card was {player_card}")
