@@ -2,20 +2,7 @@ GAME_TIE = 'tie'
 GAME_LOSS = 'lose'
 GAME_WIN = 'win'
 
-def handle_zero_bet():
-    print_with_divider("Your bet should be above 0.", before=True, after=True)
-    return 0
-
-def is_loss(bet_outcome):
-    return bet_outcome is GAME_LOSS
-
-def is_tie(bet_outcome):
-    return bet_outcome is GAME_TIE
-
-def is_win(bet_outcome):
-    return bet_outcome is GAME_WIN
-
-def net_bet_winnings(amount, bet_outcome):
+def calculate_winnings(amount, bet_outcome):
     """Returns the net bet winnings.
 
     Args:
@@ -29,8 +16,32 @@ def net_bet_winnings(amount, bet_outcome):
     else:
         return 0
 
-def print_bet_result(amount, bet_outcome):
-    """Announce the bet result.
+
+def handle_zero_bet():
+    print_with_divider("Your bet should be above 0.", before=True, after=True)
+    return 0
+
+def is_loss(bet_outcome):
+    return bet_outcome is GAME_LOSS
+
+def is_tie(bet_outcome):
+    return bet_outcome is GAME_TIE
+
+def is_win(bet_outcome):
+    return bet_outcome is GAME_WIN
+
+def find_and_print_winnings(amount, bet_outcome):
+    """Returns the net bet winnings and prints the outcome to the terminal.
+
+    Args:
+        is_win (boolean): Whether or not the bet was won
+        bet_outcome (str): One of `"win"`, `"lose"` or `"tie"`
+    """
+    print_bet_outcome(amount, bet_outcome)
+    return calculate_winnings(amount, bet_outcome)
+
+def print_bet_outcome(amount, bet_outcome):
+    """Announce the bet outcome.
 
     Args:
         amount (number): The amount wagered.

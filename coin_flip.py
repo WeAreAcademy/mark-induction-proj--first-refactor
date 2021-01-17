@@ -16,9 +16,9 @@ def play(guess, bet):
 
     utils.print_with_divider(f"Let's flip a coin! You guessed {guess}", before=False, after=True)
     flip_result = flip_coin()
-    outcome = game_outcome(guess, flip_result)
-    utils.print_bet_result(bet, outcome)
-    return utils.net_bet_winnings(bet, outcome)
+    print_flip(flip_result)
+    outcome = find_outcome(guess, flip_result)
+    return utils.find_and_print_winnings(bet, outcome)
 
 # -----------------------
 # Helper functions below
@@ -32,10 +32,10 @@ def flip_coin():
     """
     return random.choice(['H', "T"])
 
-def game_outcome(str_one, str_two):
-    """Check whether two strings represent equivalent coin flip states.
+def find_outcome(flip_one, flip_two):
+    """Return the game outcome based on two coin flip results.
     """
-    is_win = has_coin_flip_equivalence(str_one, str_two)
+    is_win = has_coin_flip_equivalence(flip_one, flip_two)
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
 def has_coin_flip_equivalence(str_one, str_two):
@@ -58,5 +58,10 @@ def is_tails(string):
     """
     return string in tails_variants
 
-
-
+def print_flip(string):
+    """Print a coin flip result
+    """
+    if is_heads(string):
+        print("Heads!")
+    elif is_tails(string):
+        print("Tails!")

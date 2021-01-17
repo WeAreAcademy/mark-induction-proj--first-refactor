@@ -3,60 +3,35 @@ import utils
 
 # main function to play coin flip
 def play(bet):
-    # Early return if bet is <= 0
+    """Play a higher card game with the associated wager.
+
+    Args:
+        bet (number): The amount waged
+
+    Returns: (number) the net winnings
+    """
     if bet <= 0: return utils.handle_zero_bet()
     
     utils.print_with_divider("Let's play a game of cards!", before=True, after=False)
-    mine = random_card_value()
-    theirs = random_card_value()
-    print_selected_cards(mine, theirs)
-
-    #Determines who won and returns either bet, -bet or 0 (in the case of a tie.)
-    if mine > theirs:
-        print("You won " + str(bet)+" dollars!")
-        print_divider()
-        return bet
-    elif mine < theirs:
-        print("You lost " + str(bet)+" dollars!")
-        print_divider()
-        return -bet
-    else:
-        print("It was a tie!")
-        print_divider()
-        return 0
+    player_card = pick_random_card()
+    computer_card = pick_random_card()
+    print_selected_cards(player_card, computer_card)
+    outcome = find_outcome(player_card, computer_card)
+    return utils.find_and_print_winnings(bet, outcome)
 
 # -----------------------
 # Helper functions below
 # -----------------------
 
-heads_variants = ["H", "h", "Heads", "heads"]
-tails_variants = ["T", "t", "Tails", "tails"]
-
-def flip_coin():
-    """Randomly return `"H"` or `"T"` to represent a coin flip.
+def find_outcome(player_value, computer_value):
+    """Return the game outcome based on two numbers.
     """
-    return random.choice(['H', "T"])
-
-def has_coin_flip_equivalence(str_one, str_two):
-    """Check whether two strings represent equivalent coin flip states.
-    """
-    if is_heads(str_one) and is_heads(str_two):
-        return True
-    elif is_tails(str_one) and is_tails(str_two):
-        return True
+    if player_value > computer_value:
+        return utils.GAME_WIN
+    elif player_value is computer_value:
+        return utils.GAME_TIE
     else:
-        return False
-
-
-def is_heads(string):
-    """Check whether a string represents a coin heads.
-    """
-    return string in heads_variants
-
-def is_tails(string):
-    """Check whether a string represents a coin tails.
-    """
-    return string in tails_variants
+        return utils.GAME_LOSS
 
 def print_selected_cards(player_card, computer_card):
     """Print the player and computer cards.
@@ -64,6 +39,6 @@ def print_selected_cards(player_card, computer_card):
     print(f"Your card was {player_card}")
     print(f"Their card was {computer_card}")
 
-def random_card_value():
+def pick_random_card():
     # Use 1 to 13 to represent Ace to King
     return random.randint(1, 13)
