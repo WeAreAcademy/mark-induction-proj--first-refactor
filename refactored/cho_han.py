@@ -9,7 +9,7 @@ def play(guess, bet):
     if bet <= 0: return utils.handle_zero_bet()
 
     utils.print_with_divider("Let's play Cho-Han!", before=True, after=False)
-    dice_total = roll_dice(2)
+    dice_total = roll_die() + roll_die()
     print_dice_total(dice_total)
     outcome = find_outcome(guess, dice_total)
     return utils.find_and_print_winnings(bet, outcome)
@@ -38,9 +38,3 @@ def print_selected_cards(player_card, computer_card):
 
 def roll_die():
     return random.randint(1, 6)
-
-def roll_dice(dice_count = 2):
-    total = 0
-    for die in range(dice_count):
-        total += roll_die()
-    return total

@@ -1,7 +1,7 @@
 import random
 import utils
 
-# main function to play Roulette
+# main function to play roulette
 def play(guess, bet):
     """Return the net winnings (`int`) from a roulette game with the associated wager. Guesses can be either `"Odd"`, `"Even"` or a string/integer representing `"00"`, `"0"`, `"1"`, ... `"36"`
     """

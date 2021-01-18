@@ -1,10 +1,11 @@
 import random
 import utils
 
-# main function to play coin flip
+# main function to play higher card
 def play(bet):
     """Return the net winnings (`int`) from a higher card game with the associated wager.
     """
+    # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()
     
     utils.print_with_divider("Let's play a game of cards!", before=True, after=False)

@@ -1,3 +1,6 @@
+# Utility functions common for games
+
+# Helpful constants
 GAME_TIE = 'tie'
 GAME_LOSS = 'lose'
 GAME_WIN = 'win'

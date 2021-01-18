@@ -28,10 +28,10 @@ def find_outcome(flip_one, flip_two):
     is_win = has_coin_flip_equivalence(flip_one, flip_two)
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
-def has_coin_flip_equivalence(*strings):
-    if all(is_heads(string) for string in strings):
+def has_coin_flip_equivalence(string_one, string_two):
+    if is_heads(string_one) and is_heads(string_two):
         return True
-    elif all(is_tails(string) for string in strings):
+    elif is_tails(string_one) and is_tails(string_two):
         return True
     else:
         return False

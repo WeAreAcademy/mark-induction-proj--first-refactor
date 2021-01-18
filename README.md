@@ -34,24 +34,35 @@ We'll take some unrefactored code - the sample solution to [Codecademy's Games o
 
 This is an optional exercise, but we think you will get more from subsequent exercises if you do this.
 
-Firstly, you will need to create a new Codecademy account and sign up for a free 7-day trial in order to access the [Codecademy Games of Chance Pro project](https://www.codecademy.com/practice/projects/games-of-chance).
+Firstly, you will need to create a new Codecademy account and sign up for a free 7-day Pro trial in order to access the [Codecademy Games of Chance Pro project](https://www.codecademy.com/practice/projects/games-of-chance). _Make sure you remember to cancel your trial before you are billed - you should be able to do this fairly immediately._
+
+> N.B. If you have any barriers to starting a Codecademy Pro trial (e.g. an abundance of caution), please contact a member of Academy faculty.
 
 Complete the project - but we encourage you to do it locally.
 
-## Exercise 2: Reading, understanding and documenting
+### Code smells
 
-**Success criterion:** a document which outlines how you think this Express server works. You don't have to achieve a theory which explains 100%, but you should strive to explain as much as possible.
+As you are building your project, try to be mindful of the following 'code smells' (i.e. symptoms of 'unclean' code):
 
-(N.B.: The _correctness_ of your theory is **much less important** than the _process_ of forming this document. [Forming a prediction, and then discovering it was wrong, is an effective way to learn](https://www.sciencedirect.com/science/article/abs/pii/S0959475217303468)!)
+- [Duplicate code](https://sourcemaking.com/refactoring/smells/duplicate-code)
+- [Excessive comments](https://sourcemaking.com/refactoring/smells/comments)
+- [Long functions](https://sourcemaking.com/refactoring/smells/long-method).
 
-1. Take some time to read and digest the code
-2. Google things that you don't understand
-3. Experiment with changing things
-4. Produce a narrative document
+## Exercise 2: Reading a sample solution
 
-A good narrative document for this game would explain what code gets executed when the server is started, and what code gets executed when different endpoints are hit - and how what you see in your browser (as the server response) either changes / does not change on subsequent requests depending on the route.
+**Success criterion:** a document which outlines your initial thoughts on the readability, strengths and weaknesses of a sample solution.
 
-(Some routes will give you back the same response each time, and others won't. Why is that?)
+The file `original/main.py` has the official Codecademy sample solution for Games of Chance.
+
+We'll be improving it through refactoring soon - but, for now, your task is only to _read_ it and collect some thoughts on the code.
+
+Here are some prompts for you to consider:
+
+1. **Quick big picture.** How skimmable is the code in the way that it is structured? (This is important because in a codebase you will want to have a big picture in mind, separate from the implementation details.)
+2. **Clarity of intent.** How clear to you is the _intent_ of the code is? (This is important because code with clear intent makes it easier to fix e.g. a silly mistake, but it's very hard to fix or even spot bugs if you don't even know what the intended behaviour is.)
+3. **Ease of navigation.** How easy is it for you to navigate around the code? (This is important because you can use your time more efficiently if you are working on a codebase that is easy to navigate.)
+
+It will also help to consider the specific code smells listed above.
 
 ## Exercise 3: Writing your own Express route
 
