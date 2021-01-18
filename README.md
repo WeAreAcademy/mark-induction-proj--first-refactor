@@ -20,7 +20,7 @@ tags:
 
 We're going to look at how we might read, interpret and refactor somebody else's code.
 
-Taking a sample solution to [Codecademy's Game of Chance project](https://www.codecademy.com/practice/projects/games-of-chance) as a starting point, we'll look at how we can improve the solution.
+We'll take some unrefactored code - the sample solution to [Codecademy's Games of Chance project](https://www.codecademy.com/practice/projects/games-of-chance) - and try to improve it through refactoring.
 
 ## Learning Outcomes
 
@@ -30,31 +30,13 @@ Taking a sample solution to [Codecademy's Game of Chance project](https://www.co
 
 ## Exercise 1: Building the project yourself
 
-**Success criterion:** you can view evidence your server is running at `localhost:4000`
+**Success criterion:** you have built the Codecademy _Game of Chance_ project locally.
 
-Firstly, clone this repository to your local machine in some sensible place, for example:
+This is an optional exercise, but we think you will get more from subsequent exercises if you do this.
 
-```bash
-cd ~/Development/Academy/Mark/fundamentals # or wherever you're organising everything
-git clone https://github.com/WeAreAcademy/my-little-server.git my-little-server
-```
+Firstly, you will need to create a new Codecademy account and sign up for a free 7-day trial in order to access the [Codecademy Games of Chance Pro project](https://www.codecademy.com/practice/projects/games-of-chance).
 
-Then, change into the new directory and install the files:
-
-```bash
-cd my-little-server
-yarn
-```
-
-Finally, run your first Express server!
-
-```bash
-yarn start
-```
-
-The `start` script is configured such that the Express server will run by default on your local machine at `localhost:4000`.
-
-You will need to manually confirm this through visiting `localhost:4000` in your browser. You can also visit some different endpoints which are defined, e.g. `localhost:4000/current-time`.
+Complete the project - but we encourage you to do it locally.
 
 ## Exercise 2: Reading, understanding and documenting
 

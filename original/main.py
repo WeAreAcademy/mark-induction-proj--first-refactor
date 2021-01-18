@@ -1,7 +1,7 @@
 # This is Codecademy's original solution code for Game of Chance
 # Can be downloaded from their public forum with links to student solutions: https://discuss.codecademy.com/t/games-of-chance-challenge-project-python/462399
 
-# Up-to-date solution as of 18/01/21
+# Up-to-date official Codecademy solution as of 18/01/21
 
 import random
 

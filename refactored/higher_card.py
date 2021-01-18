@@ -4,11 +4,6 @@ import utils
 # main function to play coin flip
 def play(bet):
     """Return the net winnings (`int`) from a higher card game with the associated wager.
-
-    Args:
-        bet (int): The amount waged
-
-    Returns: (int) the net winnings
     """
     if bet <= 0: return utils.handle_zero_bet()
     
@@ -24,8 +19,6 @@ def play(bet):
 # -----------------------
 
 def find_outcome(player_value, computer_value):
-    """Return the game outcome based on two numbers.
-    """
     if player_value > computer_value:
         return utils.GAME_WIN
     elif player_value is computer_value:
@@ -50,7 +43,5 @@ def generate_suit_values():
     return list(range(1, 13))
 
 def print_selected_cards(player_card, computer_card):
-    """Print the player and computer cards.
-    """
     print(f"Your card was {player_card}")
     print(f"Their card was {computer_card}")

@@ -3,12 +3,7 @@ import utils
 
 # main function to play Cho Han
 def play(guess, bet):
-    """Return the net winnings (`int`) from a Cho Han game with the associated wager.
-
-    Args:
-        bet (int): The amount waged
-
-    Returns: (int) the net winnings
+    """Return the net winnings (`int`) from a Cho Han game with the associated wager. Guesses can be either `"Odd"` or `"Even"`.
     """
     # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()
@@ -25,31 +20,13 @@ def play(guess, bet):
 
 
 def find_outcome(player_guess, dice_total):
-    """Return the game outcome based on the player guess and dice total.
-
-    Args:
-        player_guess (str): The predicted coin flip
-        bet (int): The amount waged
-    """
     is_win = is_even_win(player_guess, dice_total) or is_odd_win(player_guess, dice_total)
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
 def is_even_win(guess, dice_total):
-    """Check whether the game has an even win.
-
-    Args:
-        guess (str): The player guess
-        dice_total (int): The dice total
-    """
     return utils.is_even(guess) and dice_total % 2 is 0
 
 def is_odd_win(guess, dice_total):
-    """Check whether the game has an odd win.
-
-    Args:
-        guess (str): The player guess
-        dice_total (int): The dice total
-    """
     return utils.is_odd(guess) and dice_total % 2 is 1
 
 def print_dice_total(dice_total):

@@ -6,33 +6,23 @@ GAME_WIN_ROULETTE_EXACT = 'roulette-straight-up'
 even_variants = ["even", "Even"]
 odd_variants = ["odd", "Odd"]
 
-def calculate_winnings(amount, bet_outcome):
-    """Returns the net bet winnings.
-
-    Args:
-        amount (int): The amount wagered
-        bet_outcome (str): The outcome of the game
+def calculate_winnings(wagered_amount, bet_outcome):
+    """Returns the net bet winnings (i.e. negative value for a loss)
     """
     if is_win(bet_outcome):
         # bet doubled
-        return amount
+        return wagered_amount
     elif is_tie(bet_outcome):
         # bet gained back - no net winnings
         return 0
     elif is_roulette_straight_win(bet_outcome):
         # special case in roulette that returns 35x payout
-        return 35 * amount
+        return 35 * wagered_amount
     else:
         # bet lost
-        return -amount
+        return -wagered_amount
 
 def find_and_print_winnings(amount, bet_outcome):
-    """Returns the net bet winnings and prints the outcome to the terminal.
-
-    Args:
-        amount (int): The amount wagered
-        bet_outcome (str): The outcome of the game
-    """
     print_bet_outcome(amount, bet_outcome)
     return calculate_winnings(amount, bet_outcome)
 
@@ -59,22 +49,14 @@ def is_win(bet_outcome):
     return bet_outcome is GAME_WIN
 
 def print_bet_outcome(amount, bet_outcome):
-    """Announce the bet outcome.
-
-    Args:
-        amount (int): The amount wagered
-        bet_outcome (str): The outcome of the game
-    """
-    if is_win(bet_outcome):
+    if is_win(bet_outcome) or is_roulette_straight_win(bet_outcome):
         print_with_divider(f"You won {amount} dollars!")
     elif is_loss(bet_outcome):
         print_with_divider(f"You lost {amount} dollars!")
-    else:
+    elif is_tie(bet_outcome):
         print_with_divider("It was a tie!")
 
 def print_divider():
-    """Print a divider.
-    """
     print("------------------")
 
 def print_with_divider(message, before=False, after=True):

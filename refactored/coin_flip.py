@@ -4,12 +4,6 @@ import utils
 # main function to play coin flip
 def play(guess, bet):
     """Return the net winnings (`int`) from a coin flip game with the associated wager.
-
-    Args:
-        guess (str): The predicted coin flip
-        bet (int): The amount waged
-
-    Returns: (int) the net winnings
     """
     # Early return if bet is <= 0
     if bet <= 0: return utils.handle_zero_bet()
@@ -28,39 +22,27 @@ heads_variants = ["H", "h", "Heads", "heads"]
 tails_variants = ["T", "t", "Tails", "tails"]
 
 def flip_coin():
-    """Randomly return `"H"` or `"T"` to represent a coin flip.
-    """
     return random.choice(['H', "T"])
 
 def find_outcome(flip_one, flip_two):
-    """Return the game outcome based on two coin flip results.
-    """
     is_win = has_coin_flip_equivalence(flip_one, flip_two)
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
-def has_coin_flip_equivalence(str_one, str_two):
-    """Check whether two strings represent equivalent coin flip states.
-    """
-    if is_heads(str_one) and is_heads(str_two):
+def has_coin_flip_equivalence(*strings):
+    if all(is_heads(string) for string in strings):
         return True
-    elif is_tails(str_one) and is_tails(str_two):
+    elif all(is_tails(string) for string in strings):
         return True
     else:
         return False
 
 def is_heads(string):
-    """Check whether a string represents a coin heads.
-    """
     return string in heads_variants
 
 def is_tails(string):
-    """Check whether a string represents a coin tails.
-    """
     return string in tails_variants
 
 def print_flip(string):
-    """Print a coin flip result
-    """
     if is_heads(string):
         print("Heads!")
     elif is_tails(string):
