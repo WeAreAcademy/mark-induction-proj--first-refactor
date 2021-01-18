@@ -3,7 +3,7 @@ import utils
 
 # main function to play coin flip
 def play(bet):
-    """Play a higher card game with the associated wager.
+    """Return the net winnings (`int`) from a higher card game with the associated wager.
 
     Args:
         bet (int): The amount waged

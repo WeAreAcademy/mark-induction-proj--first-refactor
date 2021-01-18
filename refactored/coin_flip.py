@@ -3,7 +3,7 @@ import utils
 
 # main function to play coin flip
 def play(guess, bet):
-    """Play a coin flip game with the associated wager.
+    """Return the net winnings (`int`) from a coin flip game with the associated wager.
 
     Args:
         guess (str): The predicted coin flip

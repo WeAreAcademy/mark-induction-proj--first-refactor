@@ -3,7 +3,7 @@ import utils
 
 # main function to play Roulette
 def play(guess, bet):
-    """Play a roulette game with the associated wager. Guesses can be either `"Odd"`, `"Even"` or a string/integer representing `"00"`, `"0"`, `"1"`, ... `"36"`
+    """Return the net winnings (`int`) from a roulette game with the associated wager. Guesses can be either `"Odd"`, `"Even"` or a string/integer representing `"00"`, `"0"`, `"1"`, ... `"36"`
 
     Args:
         guess (str or int)
@@ -31,7 +31,7 @@ def play(guess, bet):
 non_standard_numbers = ["0", "00"]
 
 def find_outcome(player_guess, roulette_result):
-    """Return the game outcome based on the player guess and dice total.
+    """Return the game outcome based on the player guess and roulette result.
 
     Args:
         player_guess (str): The predicted coin flip
