@@ -28,7 +28,7 @@ Taking a sample solution to [Codecademy's Game of Chance project](https://www.co
 - Extract out reusable helper functions
 - Articulate the DRY principle
 
-## Exercise 1: Installing and running
+## Exercise 1: Building the project yourself
 
 **Success criterion:** you can view evidence your server is running at `localhost:4000`
 

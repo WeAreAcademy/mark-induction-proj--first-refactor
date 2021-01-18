@@ -64,6 +64,15 @@ Once again, this function should have a parameter that allows a player to bet an
 
 Check the hint to see an additional challenge for this game.
 
+<details>
+  <summary>Hint</summary>
+  <p>If the game is a tie, you should return `0`. The player doesn’t win or lose any money.</p>
+
+  <p>It’s possible that your solution doesn’t really simulate drawing two cards from the same deck. For example, if I draw a 4, it is less likely that you will draw a 4 when you draw a card. As a challenge, think about how you might create a system that knows which cards have already been draw.</p>
+
+  <p>Hint: if you’re familiar with lists, this would be a good place to use them!</p>
+</details>
+
 ### Task Six
 
 Create a function that simulates some of the rules of [roulette](https://en.wikipedia.org/wiki/Roulette). A random number should be generated that determines which space the ball lands on.
@@ -71,6 +80,11 @@ Create a function that simulates some of the rules of [roulette](https://en.wiki
 When we wrote our function, we allowed the user to guess `"Odd"`, `"Even"`, or a specific number. We also implemented the logic associated with the `0` and `00` spots. For example, the player loses if they guess either `"Odd"` or `"Even"` and either `0` or `00` comes up.
 
 Implement as many rules of roulette as you’d like. Make sure to consider the different ways roulette rewards a win. Check the hint to see more about this!
+
+<details>
+  <summary>Hint</summary>
+  <p>The amount of money you get back from roulette changes depending on what kind of guess you make. For example, if you bet 1 dollar on a specific number, and you win, you will get 35 dollars back. But if you bet 1 dollar on "Even" and win, you will only get one dollar back. The return value of your function should reflect the different ways roulette rewards its winners.</p>
+</details>
 
 ### Task Seven
 
@@ -82,7 +96,7 @@ money += coin_flip("Heads", 10)
 
 Make sure there are enough print statements so you can understand what games were played, what happened during those games, and the amount of money you have after each game is played.
 
-### Task Eight
+### Task Eight
 
 Expand your program to check for edge cases. What should happen if a player tries to bet more money than they have? What should happen if a player bets a negative amount of money? What should happen if a player calls `"heads"` or `"Heads!"` rather than `"Heads"`.
 
