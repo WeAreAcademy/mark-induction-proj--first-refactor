@@ -20,7 +20,7 @@ tags:
 
 We're going to look at how we might read, interpret and refactor somebody else's code.
 
-We'll take some unrefactored code - the sample solution to [Codecademy's Games of Chance project](https://www.codecademy.com/practice/projects/games-of-chance) - and try to improve it through refactoring.
+We'll take some code and try to improve it through refactoring.
 
 ## Learning Outcomes
 
@@ -28,31 +28,11 @@ We'll take some unrefactored code - the sample solution to [Codecademy's Games o
 - Extract out reusable helper functions
 - Articulate the DRY principle
 
-## Exercise 1: Building the project yourself
+## Exercise 1: Reading some sample code
 
-**Success criterion:** you have built the Codecademy _Game of Chance_ project locally.
+> 🎯 **Success criterion:** a document which outlines your initial thoughts on the readability, strengths and weaknesses of a sample solution.
 
-This is an optional exercise, but we think you will get more from subsequent exercises if you do this.
-
-Firstly, you will need to create a new Codecademy account and sign up for a free 7-day Pro trial in order to access the [Codecademy Games of Chance Pro project](https://www.codecademy.com/practice/projects/games-of-chance). _Make sure you remember to cancel your trial before you are billed - you should be able to do this fairly immediately._
-
-> N.B. If you have any barriers to starting a Codecademy Pro trial (e.g. an abundance of caution), please contact a member of Academy faculty.
-
-Complete the project - but we encourage you to do it locally.
-
-### Code smells
-
-As you are building your project, try to be mindful of the following 'code smells' (i.e. symptoms of 'unclean' code):
-
-- [Duplicate code](https://sourcemaking.com/refactoring/smells/duplicate-code)
-- [Excessive comments](https://sourcemaking.com/refactoring/smells/comments)
-- [Long functions](https://sourcemaking.com/refactoring/smells/long-method).
-
-## Exercise 2: Reading a sample solution
-
-**Success criterion:** a document which outlines your initial thoughts on the readability, strengths and weaknesses of a sample solution.
-
-The file `original/main.py` has the official Codecademy sample solution for Games of Chance.
+The file `original/main.py` has the some existing code.
 
 We'll be improving it through refactoring soon - but, for now, your task is only to _read_ it and collect some thoughts on the code.
 
@@ -62,29 +42,42 @@ Here are some prompts for you to consider:
 2. **Clarity of intent.** How clear to you is the _intent_ of the code is? (This is important because code with clear intent makes it easier to fix e.g. a silly mistake, but it's very hard to fix or even spot bugs if you don't even know what the intended behaviour is.)
 3. **Ease of navigation.** How easy is it for you to navigate around the code? (This is important because you can use your time more efficiently if you are working on a codebase that is easy to navigate.)
 
-It will also help to consider the specific code smells listed above.
+**'Code smells'** to look out for:
 
-## Exercise 3: Writing your own Express route
+- [Duplicate code](https://sourcemaking.com/refactoring/smells/duplicate-code)
+- [Excessive comments](https://sourcemaking.com/refactoring/smells/comments)
+- [Long functions](https://sourcemaking.com/refactoring/smells/long-method).
 
-> 🎯 **Success criterion:** you can visit `localhost:5050/hello-world`, `localhost:5050/ponies/random` and `localhost:5050/history` in the browser, with the expected behaviour (detailed below).
+## Exercise 2: Refactoring an existing solution
 
-Now that you've been
+> 🎯 **Success criterion:** a refactored version of the sample solution which removes identified code smells
 
-### `/hello-world`
+Now you've been through the existing code, it's time to refactor it.
 
-### `/ponies/random`
+### Refactoring techniques
 
-### `/history`
+- [Consolidate Conditional Expression](https://sourcemaking.com/refactoring/consolidate-conditional-expression)
+- [Decompose Conditional](https://sourcemaking.com/refactoring/decompose-conditional)
+- [Extract Method](https://sourcemaking.com/refactoring/extract-method)
+- [Extract Variable](https://sourcemaking.com/refactoring/extract-variable)
 
-Can you populate it with some information about yourself (a short bio, maybe a CV-esque thing) and render the component through your React app?
+## Exercise 3: Sample refactoring investigation
 
-(It's up to you as to whether you replace other bits of HTML or the other component, `MyFirstReactComponent`; all that's required is that you can see your component's rendered HTML. Don't forget that you'll need to refresh when you make changes!)
+The folder `refactored` has a sample refactoring of `original/main.py`.
+
+Read through it with the same lens of above:
+
+1. Quick big picture
+2. Clarity of intent
+3. Ease of navigation
+
+What are the things which are better in this solution than the original one?
 
 ## Exercise 4: Check your understanding
 
 > 🎯 **Success criterion:** a conversation with a Faculty member and amended comments.
 
-Talk to a member of Faculty about your understanding of the game and of TypeScript.
+Talk to a member of Faculty about your refactored solution and your understanding of code smells and refactoring techniques.
 
 Amend your notes for any important points that come out of the conversation.
 
