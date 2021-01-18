@@ -29,12 +29,9 @@ def find_outcome(flip_one, flip_two):
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
 def has_coin_flip_equivalence(string_one, string_two):
-    if is_heads(string_one) and is_heads(string_two):
-        return True
-    elif is_tails(string_one) and is_tails(string_two):
-        return True
-    else:
-        return False
+    is_two_heads = is_heads(string_one) and is_heads(string_two)
+    is_two_tails = is_tails(string_one) and is_tails(string_two)
+    return is_two_heads or is_two_tails
 
 def is_heads(string):
     return string in heads_variants
