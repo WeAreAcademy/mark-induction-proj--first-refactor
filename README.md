@@ -48,6 +48,8 @@ Here are some prompts for you to consider:
 - [Excessive comments](https://sourcemaking.com/refactoring/smells/comments)
 - [Long functions](https://sourcemaking.com/refactoring/smells/long-method).
 
+It might be helpful for you to note down where you see instances of this in the provided original code.
+
 ## Exercise 2: Refactoring an existing solution
 
 > 🎯 **Success criterion:** a refactored version of the sample solution which removes identified code smells
