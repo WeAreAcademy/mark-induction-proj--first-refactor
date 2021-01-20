@@ -37,19 +37,19 @@ def is_even(string):
     return string in even_variants
 
 def is_loss(bet_outcome):
-    return bet_outcome is GAME_LOSS
+    return bet_outcome == GAME_LOSS
 
 def is_odd(string):
     return string in odd_variants
 
 def is_roulette_straight_win(bet_outcome):
-    return bet_outcome is GAME_WIN_ROULETTE_EXACT
+    return bet_outcome == GAME_WIN_ROULETTE_EXACT
 
 def is_tie(bet_outcome):
-    return bet_outcome is GAME_TIE
+    return bet_outcome == GAME_TIE
 
 def is_win(bet_outcome):
-    return bet_outcome is GAME_WIN
+    return bet_outcome == GAME_WIN
 
 def print_bet_outcome(amount, bet_outcome):
     if is_win(bet_outcome) or is_roulette_straight_win(bet_outcome):

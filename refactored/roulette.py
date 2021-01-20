@@ -38,14 +38,14 @@ def is_even_win(guess, roulette_result):
         return False
     else:
         roulette_num = int(roulette_result) # type conversion from string
-        return utils.is_even(guess) and roulette_num % 2 is 0
+        return utils.is_even(guess) and roulette_num % 2 == 0
 
 def is_odd_win(guess, roulette_result):
     roulette_num = int(roulette_result) # type conversion from string
-    return utils.is_odd(guess) and roulette_num % 2 is 1
+    return utils.is_odd(guess) and roulette_num % 2 == 1
 
 def is_straight_win(guess, roulette_result):
-    return str(guess) is roulette_result # roulette_result is a string
+    return str(guess) == roulette_result # roulette_result is a string
 
 def print_roulette_result(roulette_result):
     print(f"The wheel landed on {roulette_result}")
@@ -56,7 +56,7 @@ def print_selected_cards(player_card, computer_card):
 
 def spin_wheel():
     integer = random.randint(0, 37)
-    if integer is 37:
+    if integer == 37:
         return "00" # Using 37 to model 00
     else:
         # return a string for type consistency

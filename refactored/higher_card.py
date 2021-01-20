@@ -22,7 +22,7 @@ def play(bet):
 def find_outcome(player_value, computer_value):
     if player_value > computer_value:
         return utils.GAME_WIN
-    elif player_value is computer_value:
+    elif player_value == computer_value:
         return utils.GAME_TIE
     else:
         return utils.GAME_LOSS
