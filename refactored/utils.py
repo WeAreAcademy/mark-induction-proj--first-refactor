@@ -33,14 +33,20 @@ def handle_zero_bet():
     print_with_divider("Your bet should be above 0.", before=True, after=True)
     return 0
 
-def is_even(string):
+def is_even_word(string):
     return string in even_variants
+
+def is_even_number(number):
+    return number % 2 == 0
 
 def is_loss(bet_outcome):
     return bet_outcome == GAME_LOSS
 
-def is_odd(string):
+def is_odd_word(string):
     return string in odd_variants
+
+def is_odd_number(number):
+    return number % 2 == 1
 
 def is_roulette_straight_win(bet_outcome):
     return bet_outcome == GAME_WIN_ROULETTE_EXACT

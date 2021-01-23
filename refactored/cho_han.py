@@ -24,10 +24,10 @@ def find_outcome(player_guess, dice_total):
     return utils.GAME_WIN if is_win else utils.GAME_LOSS
 
 def is_even_win(guess, dice_total):
-    return utils.is_even(guess) and dice_total % 2 == 0
+    return utils.is_even_word(guess) and utils.is_even_number(dice_total)
 
 def is_odd_win(guess, dice_total):
-    return utils.is_odd(guess) and dice_total % 2 == 1
+    return utils.is_odd_word(guess) and utils.is_odd_number(dice_total)
 
 def print_dice_total(dice_total):
     print(f"The sum of the two dice is {dice_total}")
