@@ -38,11 +38,11 @@ def is_even_win(guess, roulette_result):
         return False
     else:
         roulette_num = int(roulette_result) # type conversion from string
-        return utils.is_even(guess) and roulette_num % 2 == 0
+        return utils.is_even_word(guess) and utils.is_even_number(roulette_num)
 
 def is_odd_win(guess, roulette_result):
     roulette_num = int(roulette_result) # type conversion from string
-    return utils.is_odd(guess) and roulette_num % 2 == 1
+    return utils.is_odd_word(guess) and utils.is_odd_number(roulette_num)
 
 def is_straight_win(guess, roulette_result):
     return str(guess) == roulette_result # roulette_result is a string

@@ -4,7 +4,7 @@ import higher_card
 import roulette
 
 def play_games_of_chance():
-  """Play the games of chance imported from modules above.
+  """Play the games of chance imported from modules above and calculates the running total.
   """
   running_total = 100
   running_total += coin_flip.play("Heads", 10)
