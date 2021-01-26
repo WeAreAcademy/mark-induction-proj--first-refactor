@@ -28,6 +28,36 @@ We'll take some code and try to improve it through refactoring.
 - Extract out reusable helper functions
 - Articulate the DRY principle
 
+## Exercise 0: Clone the repository
+
+> 🎯 **Success criterion:** you can run `original/main.py` on your local machine after cloning this repository
+
+Clone the repository
+
+```bash
+# Get to recommended file structure
+cd ~/Developer/Academy
+
+# Clone this repository
+git clone https://github.com/WeAreAcademy/mark-induction-proj--game-of-refactoring.git
+
+# change into newly created directory
+cd mark-induction-proj--game-of-refactoring
+```
+
+Run the script with `python` (or `python3` depending on your installation)
+
+```bash
+# we're in `~/Developer/Academy/mark-induction-proj--game-of-refactoring
+
+# method 1, from repo root
+python original/main.py
+
+# method 2, change into subdirectory
+cd original
+python main.py
+```
+
 ## Exercise 1: Reading some sample code
 
 > 🎯 **Success criterion:** a document which outlines your initial thoughts on the readability, strengths and weaknesses of a sample solution.
