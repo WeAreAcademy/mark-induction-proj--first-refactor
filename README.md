@@ -62,7 +62,7 @@ python main.py
 
 > 🎯 **Success criterion:** a document which outlines your initial thoughts on the readability, strengths and weaknesses of a sample solution.
 
-The file `original/main.py` has the some existing code.
+The file `original/main.py` has some existing code.
 
 We'll be improving it through refactoring soon - but, for now, your task is only to _read_ it and collect some thoughts on the code.
 
