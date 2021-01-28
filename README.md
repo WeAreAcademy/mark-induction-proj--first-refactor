@@ -69,7 +69,7 @@ We'll be improving it through refactoring soon - but, for now, your task is only
 Here are some prompts for you to consider:
 
 1. **Quick big picture.** How skimmable is the code in the way that it is structured? (This is important because in a codebase you will want to have a big picture in mind, separate from the implementation details.)
-2. **Clarity of intent.** How clear to you is the _intent_ of the code is? (This is important because code with clear intent makes it easier to fix e.g. a silly mistake, but it's very hard to fix or even spot bugs if you don't even know what the intended behaviour is.)
+2. **Clarity of intent.** How clear to you is the _intent_ of the code is? (This is important because code with clear intent makes it easier to fix e.g. a silly mistake, but it's very hard to fix or even spot bugs if you don't know what the intended behaviour is.)
 3. **Ease of navigation.** How easy is it for you to navigate around the code? (This is important because you can use your time more efficiently if you are working on a codebase that is easy to navigate.)
 
 **'Code smells'** to look out for:
